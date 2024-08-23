@@ -1,0 +1,18 @@
+.homePage{
+  display:flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+}
+.cards{
+  margin-bottom: 10px;
+  text-align: center;
+}
+.list{
+  padding: 3px;
+  justify-content: center;
+  display: flex;
+}
+.list div{
+  margin:3px
+}
