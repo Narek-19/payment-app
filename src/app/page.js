@@ -34,13 +34,17 @@ export default function Home() {
     useState(false);
   const [amount, setAmount] =
     useState(1);
-    const [title, setTitle] = useState("");
+  const [title, setTitle] =
+    useState("");
 
-    const handleOpenModal =(amount,title)=>{
-      setAmount(amount);
-      setTitle(title);
-      setOpen(true)
-    }
+  const handleOpenModal = (
+    amount,
+    title
+  ) => {
+    setAmount(amount);
+    setTitle(title);
+    setOpen(true);
+  };
 
   return (
     <>
@@ -66,27 +70,6 @@ export default function Home() {
           </Elements>
         </div>
       </Modal>
-            <div className={styles.steps}>
-      <Steps
-        items={[
-          {
-            title: "Choose Product",
-            status: "done",
-            icon: <UserOutlined />,
-          },
-          {
-            title: "Pay",
-            status: "done",
-            icon: <LoadingOutlined />,
-          },
-          {
-            title: "Done",
-            status: "wait",
-            icon: <SmileOutlined />,
-          },
-        ]}
-      />
-              </div>
 
       <div className={styles.homePage}>
         <Card
@@ -98,7 +81,7 @@ export default function Home() {
             Card content and product
             description goes here
           </p>
-          <h2>40$</h2>
+          <h2>1$</h2>
           <div className={styles.list}>
             <div>
               <CheckCircleOutlined />
@@ -120,7 +103,10 @@ export default function Home() {
           <Button
             type="primary"
             onClick={() =>
-              handleOpenModal(50,"Basic")
+              handleOpenModal(
+                1,
+                "Basic"
+              )
             }>
             Select PLan
           </Button>
@@ -156,7 +142,10 @@ export default function Home() {
           <Button
             type="primary"
             onClick={() =>
-              handleOpenModal(100,"Standart")
+              handleOpenModal(
+                100,
+                "Standart"
+              )
             }>
             Select Plan
           </Button>
@@ -192,7 +181,10 @@ export default function Home() {
           <Button
             type="primary"
             onClick={() =>
-              handleOpenModal(200,"Premium")
+              handleOpenModal(
+                200,
+                "Premium"
+              )
             }>
             Select Plan
           </Button>
