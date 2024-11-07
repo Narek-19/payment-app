@@ -1,6 +1,7 @@
-"use client";
+'use client';
 
 import { useState } from "react";
+import Navbar from "./components/Navbar/Navbar";
 import styles from "./page.module.css";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
@@ -15,10 +16,9 @@ import {
 import {
   CheckCircleOutlined,
   CloseCircleOutlined,
-  LoadingOutlined,
-  SmileOutlined,
-  UserOutlined,
 } from "@ant-design/icons";
+import { RevealBento } from "./components/RevealBento/RevealBento";
+import AnimationCard from "./components/AnimationCard/AnimationCard";
 
 const stripePromise = loadStripe(
   process.env
@@ -70,13 +70,14 @@ export default function Home() {
           </Elements>
         </div>
       </Modal>
+      <Navbar />
+      <div className={styles.cardsPrice}>
+        <div className={styles.backgroundDesign}>
 
-      <div className={styles.homePage}>
         <Card
           className={styles.cards}
-          title="Basic"
-          extra={null}
-          style={{ width: 300 }}>
+          title="Web Site Creating"
+          extra={null}>
           <p>
             Card content and product
             description goes here
@@ -111,11 +112,12 @@ export default function Home() {
             Select PLan
           </Button>
         </Card>
+        </div>
+        <div className={styles.backgroundDesign}>
         <Card
           className={styles.cards}
-          title="Standard"
-          extra={null}
-          style={{ width: 300 }}>
+          title="Marketing"
+          extra={null}>
           <p>
             Card content and product
             description goes here
@@ -150,11 +152,12 @@ export default function Home() {
             Select Plan
           </Button>
         </Card>
+        </div>
+        <div className={styles.backgroundDesign}>
         <Card
           className={styles.cards}
-          title="Premium"
-          extra={null}
-          style={{ width: 300 }}>
+          title="Selling Products"
+          extra={null}>
           <p>
             Card content and product
             description goes here
@@ -189,7 +192,9 @@ export default function Home() {
             Select Plan
           </Button>
         </Card>
+        </div>
       </div>
+      <RevealBento />
     </>
   );
 }
