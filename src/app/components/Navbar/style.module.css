@@ -7,11 +7,34 @@
     align-items: center;
     gap: 0.5rem;
     border-bottom: 2px solid gray;
+    position: relative;
 }
 
 .itemContainer{
   display: flex;
   flex-wrap: wrap;
+}
+
+.mobileDesign{
+  padding: 30px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 100vh;
+  background-color: white;
+  border-left: 2px solid gray;
+  top:0;
+  right: 0;
+  z-index: 1000;
+}
+.iconClose{
+  margin: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+.mobileDesign button{
+  margin-bottom: 20px;
 }
 
 .textColor {
@@ -42,6 +65,7 @@
     position: relative;
     border:none;
   }
+
 
   .tabText{
     position: relative;
