@@ -26,3 +26,69 @@
 .list div{
   margin:3px
 }
+
+
+
+/* cardSection */
+
+.cardSection{
+  display:flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.cardSection div{
+  padding: 3px;
+}
+.price{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.priceNumber{
+  color:#2e4564;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-right: 5px;
+}
+.keys div{
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: gray;
+}
+
+.des{
+  display: flex;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.header{
+  font-size: 1.5rem;
+  text-align: start;
+  font-weight: bold;
+}
+
+.bestMatch{
+  border:1px solid #0e537e;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.commingSoon{
+  position: relative;
+  border-radius: 30px;
+}
+
+.commingSoonCard{
+  position: absolute;
+  top:0;
+  left:0;
+  backdrop-filter: blur(3px);
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1rem;
+  color:#2e4564;
+}
