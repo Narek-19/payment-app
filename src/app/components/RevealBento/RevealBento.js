@@ -86,6 +86,7 @@ const HeaderBlock = () => (
       {" "}into impactful realities.
     </h1>
     <a
+    name="Contact"
       href="#"
       className={
         styles.flexCenterRedHover

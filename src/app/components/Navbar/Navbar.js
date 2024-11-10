@@ -7,6 +7,14 @@ import Image from "next/image";
 import Logo from "../../../../public/15040.png";
 import MenuIcon from "../../../../public/menuIcon.png";
 import closeIcon from "../../../../public/close.png";
+import {
+  Link,
+  Button,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+} from "react-scroll";
 
 const tabs = [
   "Home",
@@ -49,7 +57,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] =
     useState(false);
 
-  const isMin600px = useMinWidth(676);
+  const isMin600px = useMinWidth(800);
 
   useEffect(() => {
     if (isMin600px && menuOpen) {
@@ -79,6 +87,7 @@ const Navbar = () => {
       </div>
       {!isMin600px && (
         <div
+          className={styles.menuIcon}
           onClick={() =>
             setMenuOpen(true)
           }>
@@ -91,29 +100,44 @@ const Navbar = () => {
         </div>
       )}
       {isMin600px && (
-        <div
-          className={
-            styles.itemContainer
-          }>
+        <>
           <div
             className={
-              styles.iconClose
+              styles.itemContainer
             }>
+            <div
+              className={
+                styles.iconClose
+              }></div>
+            {tabs.map((tab) => (
+              <Link
+                to={tab}
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}>
+                <Chip
+                  text={tab}
+                  selected={
+                    selected === tab
+                  }
+                  setSelected={
+                    setSelected
+                  }
+                  key={tab}
+                />
+              </Link>
+            ))}
           </div>
-          {tabs.map((tab) => (
-            <Chip
-              text={tab}
-              selected={
-                selected === tab
-              }
-              setSelected={setSelected}
-              key={tab}
-            />
-          ))}
-        </div>
-      ) }
-      { menuOpen &&
-       (
+          <div
+            className={
+              styles.phoneNumber
+            }>
+            +1-212-456-7890
+          </div>
+        </>
+      )}
+      {menuOpen && (
         <div
           className={
             styles.mobileDesign
@@ -122,26 +146,41 @@ const Navbar = () => {
             className={
               styles.iconClose
             }>
-            <Image
-              onClick={() =>
-                setMenuOpen(false)
-              }
-              src={closeIcon}
-              width="32"
-              height="32"
-              alt="close icon"
-            />
+            <div>
+              <Image
+                className={styles.img}
+                onClick={() =>
+                  setMenuOpen(false)
+                }
+                src={closeIcon}
+                width="32"
+                height="32"
+                alt="close icon"
+              />
+            </div>
           </div>
           {tabs.map((tab) => (
-            <Chip
-              text={tab}
-              selected={
-                selected === tab
-              }
-              setSelected={setSelected}
-              key={tab}
-            />
+            <Link to={tab}>
+              <div onClick={()=>setMenuOpen(false)}>
+              <Chip
+                text={tab}
+                selected={
+                  selected === tab
+                }
+                setSelected={
+                  setSelected
+                }
+                key={tab}
+              />
+                  </div>
+            </Link>
           ))}
+          <div
+            className={
+              styles.phoneNumber
+            }>
+            +1-212-456-7890
+          </div>
         </div>
       )}
     </div>

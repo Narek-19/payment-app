@@ -1,5 +1,6 @@
 "use client";
 
+import ScrollAnimation from "react-animate-on-scroll";
 import { useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import styles from "./page.module.css";
@@ -7,20 +8,16 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckoutPage from "../../components/CheckoutPage";
 import { convertToSubcurrency } from "../../lib/convertToSubcurrency";
+
 import ChechIcon from "../../public/verifying.png";
 import {
   Button,
   Card,
   Modal,
-  Steps,
 } from "antd";
-import {
-  CheckCircleOutlined,
-  CloseCircleOutlined,
-} from "@ant-design/icons";
 import { RevealBento } from "./components/RevealBento/RevealBento";
-import AnimationCard from "./components/AnimationCard/AnimationCard";
 import Image from "next/image";
+import AnimationCard from "./components/AnimationCard/AnimationCard";
 
 const stripePromise = loadStripe(
   process.env
@@ -73,6 +70,52 @@ export default function Home() {
         </div>
       </Modal>
       <Navbar />
+      {/* header  */}
+      <div
+        className={
+          styles.headerContainer
+        }>
+        <div
+          className={
+            styles.gradientBg
+          }></div>
+
+        <div
+          class={styles.contentHeader}>
+          <h1>
+            Grow Your Business with
+            Professional Marketing &
+            Website Solutions
+          </h1>
+          <AnimationCard>
+            <p name="Home">
+              Unlock your brand's
+              potential with our
+              tailored marketing
+              strategies and
+              cutting-edge website
+              design services. We help
+              businesses of all sizes
+              stand out in the digital
+              world by crafting visually
+              stunning, high-performing
+              websites and implementing
+              data-driven marketing
+              campaigns.
+            </p>
+          </AnimationCard>
+          <ScrollAnimation
+              animateIn="flipInY"
+              animateOut="flipOutY">
+          <button>
+            
+              Request a Free Proposal
+          
+          </button>
+          </ScrollAnimation>
+        </div>
+      </div>
+
       <div
         className={styles.cardsPrice}>
         <div
@@ -84,6 +127,7 @@ export default function Home() {
             title="Web Site Creating"
             extra={null}>
             <div
+            name="Service"
               className={
                 styles.cardSection
               }>
@@ -142,8 +186,11 @@ export default function Home() {
                   Select Plan
                 </Button>
               </div>
-              <div className={styles.bestMatch}>
               <div
+                className={
+                  styles.bestMatch
+                }>
+                <div
                   className={
                     styles.header
                   }>
@@ -180,9 +227,12 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                  An excellent choice for growing  <br/>  businesses
-                  
-                   that <br/> need  more resources and insights.
+                    An excellent choice
+                    for growing <br />{" "}
+                    businesses that{" "}
+                    <br /> need more
+                    resources and
+                    insights.
                   </div>
                 </div>
                 <Button
@@ -197,7 +247,7 @@ export default function Home() {
                 </Button>
               </div>
               <div>
-              <div
+                <div
                   className={
                     styles.header
                   }>
@@ -234,8 +284,10 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                  Fully customizable settings <br />
-                  to match your brand’s needs.
+                    Fully customizable
+                    settings <br />
+                    to match your
+                    brand’s needs.
                   </div>
                 </div>
                 <Button
@@ -256,7 +308,7 @@ export default function Home() {
           className={
             styles.backgroundDesign
           }>
-           <Card
+          <Card
             className={styles.cards}
             title="Social Marketing"
             extra={null}>
@@ -319,8 +371,11 @@ export default function Home() {
                   Select Plan
                 </Button>
               </div>
-              <div className={styles.bestMatch}>
               <div
+                className={
+                  styles.bestMatch
+                }>
+                <div
                   className={
                     styles.header
                   }>
@@ -357,9 +412,12 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                  An excellent choice for growing  <br/>  businesses
-                  
-                   that <br/> need  more resources and insights.
+                    An excellent choice
+                    for growing <br />{" "}
+                    businesses that{" "}
+                    <br /> need more
+                    resources and
+                    insights.
                   </div>
                 </div>
                 <Button
@@ -374,7 +432,7 @@ export default function Home() {
                 </Button>
               </div>
               <div>
-              <div
+                <div
                   className={
                     styles.header
                   }>
@@ -411,8 +469,10 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                  Fully customizable settings <br />
-                  to match your brand’s needs.
+                    Fully customizable
+                    settings <br />
+                    to match your
+                    brand’s needs.
                   </div>
                 </div>
                 <Button
@@ -429,21 +489,21 @@ export default function Home() {
             </div>
           </Card>
         </div>
-        <div className={
-            `${styles.backgroundDesign} ${styles.commingSoon}`
-          }>
-        <Card
+        <div
+          className={`${styles.backgroundDesign} ${styles.commingSoon}`}>
+          <Card
             className={styles.cards}
             title="Application"
             extra={null}>
             <div
-              className={
-                `${styles.cardSection} ` 
-              }>
-                <div className={styles.commingSoonCard}>
-                 <h1> Application</h1>
-                 <h2>Comming Soon...</h2>
-                  </div>
+              className={`${styles.cardSection} `}>
+              <div
+                className={
+                  styles.commingSoonCard
+                }>
+                <h1> Application</h1>
+                <h2>Comming Soon...</h2>
+              </div>
               <div>
                 <div
                   className={
@@ -471,7 +531,7 @@ export default function Home() {
                 </div>
               </div>
               <div>
-              <div
+                <div
                   className={
                     styles.header
                   }>
@@ -497,7 +557,7 @@ export default function Home() {
                 </div>
               </div>
               <div>
-              <div
+                <div
                   className={
                     styles.header
                   }>
@@ -526,7 +586,11 @@ export default function Home() {
           </Card>
         </div>
       </div>
+        <div name="About">
       <RevealBento />
+        </div>
+  
+  
     </>
   );
 }
