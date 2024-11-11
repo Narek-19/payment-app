@@ -99,7 +99,8 @@ cursor: pointer;
     border-radius: 0.375rem; /* Rounded-md */
   }
 
-  .phoneNumber{
+  .phoneNumber a{
     color:#ed583a;
     font-weight: bold;
+    text-decoration: none;
   }

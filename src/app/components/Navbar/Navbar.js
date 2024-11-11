@@ -15,6 +15,7 @@ import {
   animateScroll as scroll,
   scrollSpy,
 } from "react-scroll";
+import { PhoneNumber } from "../phoneNumber/PhoneNumber";
 
 const tabs = [
   "Home",
@@ -57,7 +58,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] =
     useState(false);
 
-  const isMin600px = useMinWidth(800);
+  const isMin600px = useMinWidth(900);
 
   useEffect(() => {
     if (isMin600px && menuOpen) {
@@ -129,12 +130,7 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-          <div
-            className={
-              styles.phoneNumber
-            }>
-            +1-212-456-7890
-          </div>
+          <PhoneNumber />
         </>
       )}
       {menuOpen && (
@@ -161,25 +157,30 @@ const Navbar = () => {
           </div>
           {tabs.map((tab) => (
             <Link to={tab}>
-              <div onClick={()=>setMenuOpen(false)}>
-              <Chip
-                text={tab}
-                selected={
-                  selected === tab
-                }
-                setSelected={
-                  setSelected
-                }
-                key={tab}
-              />
-                  </div>
+              <div
+                onClick={() =>
+                  setMenuOpen(false)
+                }>
+                <Chip
+                  text={tab}
+                  selected={
+                    selected === tab
+                  }
+                  setSelected={
+                    setSelected
+                  }
+                  key={tab}
+                />
+              </div>
             </Link>
           ))}
           <div
             className={
               styles.phoneNumber
             }>
-            +1-212-456-7890
+            <a href="tel:+1-847-555-5555">
+              +1-847-555-5555
+            </a>
           </div>
         </div>
       )}
