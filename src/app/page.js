@@ -18,6 +18,7 @@ import {
 import { RevealBento } from "./components/RevealBento/RevealBento";
 import Image from "next/image";
 import AnimationCard from "./components/AnimationCard/AnimationCard";
+import { ProposalContent } from "./components/ProposalContent/ProposalContent";
 
 const stripePromise = loadStripe(
   process.env
@@ -31,6 +32,9 @@ const showLoading = () => {
 export default function Home() {
   const [open, setOpen] =
     useState(false);
+
+  const [openProposalModal, setOpenProposalModal]=useState(false)
+    
   const [amount, setAmount] =
     useState(1);
   const [title, setTitle] =
@@ -69,8 +73,18 @@ export default function Home() {
           </Elements>
         </div>
       </Modal>
+      <Modal
+       title={<p>Request a proposal</p>}
+       open={openProposalModal}
+       footer={null}
+       onCancel={() => setOpenProposalModal(false)}
+      >
+        <ProposalContent/>
+
+      </Modal>
       <Navbar />
       {/* header  */}
+      <div className={styles.layout}>
       <div
         className={
           styles.headerContainer
@@ -107,10 +121,8 @@ export default function Home() {
           <ScrollAnimation
               animateIn="flipInY"
               animateOut="flipOutY">
-          <button>
-            
+          <button onClick={()=>setOpenProposalModal(true)}>
               Request a Free Proposal
-          
           </button>
           </ScrollAnimation>
         </div>
@@ -587,10 +599,10 @@ export default function Home() {
         </div>
       </div>
         <div name="About">
-      <RevealBento />
+          <RevealBento />
         </div>
   
-  
+      </div>
     </>
   );
 }

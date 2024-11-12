@@ -9,9 +9,6 @@ import MenuIcon from "../../../../public/menuIcon.png";
 import closeIcon from "../../../../public/close.png";
 import {
   Link,
-  Button,
-  Element,
-  Events,
   animateScroll as scroll,
   scrollSpy,
 } from "react-scroll";

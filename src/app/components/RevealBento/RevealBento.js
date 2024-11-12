@@ -85,7 +85,7 @@ const HeaderBlock = () => (
       </span>
       {" "}into impactful realities.
     </h1>
-    <a
+    {/* <a
     name="Contact"
       href="#"
       className={
@@ -93,7 +93,7 @@ const HeaderBlock = () => (
       }>
       Contact us
       <FiArrowRight />
-    </a>
+    </a> */}
   </Block>
 );
 
