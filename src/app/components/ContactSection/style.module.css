@@ -1,0 +1,72 @@
+.contactSection{
+  border-top: 2px solid gray;
+  background-image: url("../../../../public/bgg.png");
+  display: flex;
+  color:#2e4564;
+  align-items: center;
+  padding: 20px;
+  margin: 10px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.form {
+  padding: 0 10px;
+  color:#2e4564;
+  width: 800px;
+  
+}
+
+.formDes{
+  padding: 5px;
+  text-align: center;
+}
+
+.form div{
+  margin-top: 5px;
+  background: linear-gradient(16deg, rgba(197,197,247,0.227328431372549) 21%, rgba(218,218,218,1) 100%);
+
+  padding: 10px 35px;
+  border-radius: 20px;
+}
+
+.form div input{
+  width: 100%;
+  padding:8px;
+  outline: none;
+  border:2px solid blue;
+  border-radius: 20px;
+  margin: 8px 0px;
+}
+
+
+.contactSection textarea{
+  border:2px solid rgb(112, 112, 243);
+  border-radius: 10px;
+  margin:5px;
+  padding: 10px;
+  resize: none;
+  width: 100%;
+}
+
+.form .sendBtn{
+  cursor: pointer;
+  margin: 5px;
+  text-align: center;
+  color:white;
+  font-weight: bold;
+  background: linear-gradient(to right, #07324d, #4f46e5); /* Violet to Indigo gradient */
+}
+
+@media only screen and (max-width: 880px) {
+  .contactSection {
+    display: block;
+  }
+  .form {
+    padding: 0 10px;
+    color:#2e4564;
+    width:auto;
+  }
+}

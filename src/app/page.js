@@ -19,6 +19,7 @@ import { RevealBento } from "./components/RevealBento/RevealBento";
 import Image from "next/image";
 import AnimationCard from "./components/AnimationCard/AnimationCard";
 import { ProposalContent } from "./components/ProposalContent/ProposalContent";
+import {ContactSection} from "./components/ContactSection/ContactSection";
 
 const stripePromise = loadStripe(
   process.env
@@ -597,6 +598,9 @@ export default function Home() {
             </div>
           </Card>
         </div>
+      </div>
+      <div className={styles.contactSection}>
+            <ContactSection/>
       </div>
         <div name="About">
           <RevealBento />

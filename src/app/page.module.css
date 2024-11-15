@@ -162,3 +162,9 @@ background: linear-gradient(to right, #0e537e, #746ee4); /* Violet to Indigo gra
   font-size: 1rem;
   color:#2e4564;
 }
+
+
+.contactSection{
+  display: flex;
+  justify-content: center;
+}
