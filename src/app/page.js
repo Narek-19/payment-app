@@ -1,5 +1,5 @@
 "use client";
-
+import { useSearchParams } from 'next/navigation'
 import ScrollAnimation from "react-animate-on-scroll";
 import { use, useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
@@ -32,9 +32,10 @@ const showLoading = () => {
 
 export default function Home() {
 
-  const queryParams = new URLSearchParams(window.location.search)
+  const searchParams = useSearchParams()
+ 
+  const queryPayment = searchParams.get('paymentSuccess')
 
-  const queryPayment = queryParams.get("paymentSuccess")
 
   console.log(queryPayment,"queryPayment");
 
