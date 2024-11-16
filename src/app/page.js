@@ -1,7 +1,7 @@
 "use client";
 import { useSearchParams } from 'next/navigation'
 import ScrollAnimation from "react-animate-on-scroll";
-import { use, useEffect, useState } from "react";
+import { Suspense, use, useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import styles from "./page.module.css";
 import { Elements } from "@stripe/react-stripe-js";
@@ -67,7 +67,7 @@ export default function Home() {
   },[queryPayment])
 
   return (
-    <>
+    <Suspense>
     <div name="Home"></div>
     <Modal
     title={<p>Success Payment</p>}
@@ -641,6 +641,6 @@ Thank you for choosing Apeh.Services
         </div>
   
       </div>
-    </>
+    </Suspense>
   );
 }
