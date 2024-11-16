@@ -1,7 +1,7 @@
 "use client";
 import { useSearchParams } from 'next/navigation'
 import ScrollAnimation from "react-animate-on-scroll";
-import { Suspense, use, useEffect, useState } from "react";
+import {  use, useEffect, useState ,Suspense} from "react";
 import Navbar from "./components/Navbar/Navbar";
 import styles from "./page.module.css";
 import { Elements } from "@stripe/react-stripe-js";
@@ -20,6 +20,7 @@ import Image from "next/image";
 import AnimationCard from "./components/AnimationCard/AnimationCard";
 import { ProposalContent } from "./components/ProposalContent/ProposalContent";
 import {ContactSection} from "./components/ContactSection/ContactSection";
+import { SuccessPayment } from './components/SuccessPayment';
 
 const stripePromise = loadStripe(
   process.env
@@ -32,19 +33,14 @@ const showLoading = () => {
 
 export default function Home() {
 
-  const searchParams = useSearchParams()
- 
-  const queryPayment = searchParams.get('paymentSuccess')
 
-
-  console.log(queryPayment,"queryPayment");
 
   const [open, setOpen] =
     useState(false);
 
   const [openProposalModal, setOpenProposalModal]=useState(false)
 
-  const [paymentSuccess, setPaymentSuccess] = useState(false);
+
     
   const [amount, setAmount] =
     useState(1);
@@ -60,30 +56,13 @@ export default function Home() {
     setOpen(true);
   };
 
-  useEffect(()=>{
-    if(+queryPayment === 1){
-      setPaymentSuccess(true);
-    }
-  },[queryPayment])
-
   return (
-    <Suspense>
+    <>
     <div name="Home"></div>
-    <Modal
-    title={<p>Success Payment</p>}
-    open={paymentSuccess}
-    footer={null}
-    onCancel={()=>setPaymentSuccess(false)}
-    >
-<div>
-<h1 style={{textAlign:"center",color:"green"}}> Success! </h1>
-<p>Your payment has been processed successfully. Thank you for your purchase!</p>
-
-<p>If you have any questions or need further assistance, feel free to reach out to us.</p>
-
-Thank you for choosing Apeh.Services
-</div>
-    </Modal>
+    <Suspense>
+    <SuccessPayment/>
+    </Suspense>
+ 
       <Modal
         title={<p>{title}</p>}
         open={open}
@@ -641,6 +620,6 @@ Thank you for choosing Apeh.Services
         </div>
   
       </div>
-    </Suspense>
+    </>
   );
 }
