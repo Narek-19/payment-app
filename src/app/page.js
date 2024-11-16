@@ -171,7 +171,7 @@ export default function Home() {
                     className={
                       styles.priceNumber
                     }>
-                    1350$
+                    10$
                   </div>
                   <div
                     className={
@@ -204,7 +204,7 @@ export default function Home() {
                   type="primary"
                   onClick={() =>
                     handleOpenModal(
-                      1,
+                      10,
                       "Basic"
                     )
                   }>
