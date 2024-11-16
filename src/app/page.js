@@ -1,7 +1,7 @@
 "use client";
 
 import ScrollAnimation from "react-animate-on-scroll";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import styles from "./page.module.css";
 import { Elements } from "@stripe/react-stripe-js";
@@ -31,10 +31,19 @@ const showLoading = () => {
 };
 
 export default function Home() {
+
+  const queryParams = new URLSearchParams(window.location.search)
+
+  const queryPayment = queryParams.get("paymentSuccess")
+
+  console.log(queryPayment,"queryPayment");
+
   const [open, setOpen] =
     useState(false);
 
   const [openProposalModal, setOpenProposalModal]=useState(false)
+
+  const [paymentSuccess, setPaymentSuccess] = useState(false);
     
   const [amount, setAmount] =
     useState(1);
@@ -50,8 +59,30 @@ export default function Home() {
     setOpen(true);
   };
 
+  useEffect(()=>{
+    if(+queryPayment === 1){
+      setPaymentSuccess(true);
+    }
+  },[queryPayment])
+
   return (
     <>
+    <div name="Home"></div>
+    <Modal
+    title={<p>Success Payment</p>}
+    open={paymentSuccess}
+    footer={null}
+    onCancel={()=>setPaymentSuccess(false)}
+    >
+<div>
+<h1 style={{textAlign:"center",color:"green"}}> Success! </h1>
+<p>Your payment has been processed successfully. Thank you for your purchase!</p>
+
+<p>If you have any questions or need further assistance, feel free to reach out to us.</p>
+
+Thank you for choosing Apeh.Services
+</div>
+    </Modal>
       <Modal
         title={<p>{title}</p>}
         open={open}
@@ -83,6 +114,7 @@ export default function Home() {
         <ProposalContent/>
 
       </Modal>
+      
       <Navbar />
       {/* header  */}
       <div className={styles.layout}>
@@ -103,7 +135,7 @@ export default function Home() {
             Website Solutions
           </h1>
           <AnimationCard>
-            <p name="Home">
+            <p >
               Unlock your brand's
               potential with our
               tailored marketing
@@ -119,6 +151,7 @@ export default function Home() {
               campaigns.
             </p>
           </AnimationCard>
+          <div name="Service"></div>
           <ScrollAnimation
               animateIn="flipInY"
               animateOut="flipOutY">
@@ -128,7 +161,7 @@ export default function Home() {
           </ScrollAnimation>
         </div>
       </div>
-
+         
       <div
         className={styles.cardsPrice}>
         <div
@@ -140,7 +173,6 @@ export default function Home() {
             title="Web Site Creating"
             extra={null}>
             <div
-            name="Service"
               className={
                 styles.cardSection
               }>
@@ -599,6 +631,7 @@ export default function Home() {
           </Card>
         </div>
       </div>
+      <div name="Contact"></div>
       <div className={styles.contactSection}>
             <ContactSection/>
       </div>

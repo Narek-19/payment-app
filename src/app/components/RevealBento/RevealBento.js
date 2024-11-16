@@ -190,15 +190,19 @@ const LocationBlock = () => (
       <tbody>
         <tr>
           <td>Address:</td>
-          <td>California</td>
+          <td>Los Angeles,CA</td>
         </tr>
-        <tr>
+        {/* <tr>
           <td>Zip Code:</td>
           <td>40299</td>
-        </tr>
+        </tr> */}
         <tr>
           <td>Phone:</td>
-          <td>555 555 555 555</td>
+          <td>
+            <a href="tel:+1-909-903-0009">
+            +1-909-903-0009
+            </a>
+          </td>
         </tr>
       </tbody>
     </div>

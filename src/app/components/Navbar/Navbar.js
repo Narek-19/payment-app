@@ -175,8 +175,8 @@ const Navbar = () => {
             className={
               styles.phoneNumber
             }>
-            <a href="tel:+1-847-555-5555">
-              +1-847-555-5555
+            <a href="tel:+1-909-903-0009">
+            +1-909-903-0009
             </a>
           </div>
         </div>

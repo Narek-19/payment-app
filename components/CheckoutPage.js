@@ -18,6 +18,9 @@ const CheckoutPage =({amount})=>{
     const [clientSecret, setClientSecret] = useState();
     const [loading, setLoading] = useState();
 
+
+
+
     useEffect(()=>{
         fetch("/api/create-payment-intent", {
             method:"POST",
@@ -49,7 +52,7 @@ const CheckoutPage =({amount})=>{
             elements,
             clientSecret,
             confirmParams:{
-                return_url:`https://www.apeh.services/payment-success?amount=${amount}`
+                return_url:`https://www.apeh.services?amount=${amount}&paymentSuccess=${1}`
             }
         })
 
@@ -68,10 +71,12 @@ const CheckoutPage =({amount})=>{
         {clientSecret && (
           <PaymentElement />
         )}
+
+
         <button
         className={styles.button}
           disabled={!stripe || loading}>
-          {!loading
+          {!loading || !clientSecret || !stripe || !elements
             ? `Pay ${amount}$`
             : "Processing"}
         </button>

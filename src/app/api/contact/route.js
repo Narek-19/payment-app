@@ -1,33 +1,38 @@
+import  {Resend} from 'resend';
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer'
+
 
 export async function POST(request) {
     try {
-        const { subject, message } = await request.json();
+        const { form,section } = await request.json();
+        const resend = new Resend(process.env.RESEND_API_KEY)
+        let htmlContent;
+        if(section==="contact"){
+        htmlContent = `
+            <p>Name: <strong>${form?.name}</strong>!</p>
+            <p>Phone: <strong>${form?.phone}</strong></p>
+            <p>Email: <strong>${form?.email}</strong></p>
+            <p>Message: <strong>${form?.msg}</strong></p>
 
-        const transporter = nodemailer.createTransport({
-            service: 'zoho',
-            host: 'smtpro.zoho.in',
-            port: 465,
-            secure: true,
-            auth: {
-                user: 'careeros@tryporpra.com',
-                pass: process.env.NEXT_PUBLIC_PASSWORD
-            }
-        })
-
-        const mailOption = {
-            from: 'careeros@tryporpra.com',
-            to: 'narekchakhoyan97@gmail.com',
-            subject: "Send Email Tutorial",
-            html: `
-        <h3>Hello Augustine</h3>
-        <li> title: ${subject}</li>
-        <li> message: ${message}</li> 
-        `
+            <p style={{color:"green"}}>No Computer Viruses; All Data checked, Success Status </p>
+            `
         }
+        if(section === "proposal"){
+            htmlContent = `
+            <h1>Apeh Services, ${form.name} requested free Proposal</h1>
 
-        await transporter.sendMail(mailOption)
+            <p>Name: <strong>${form?.name}</strong>!</p>
+            <p>Last Name: <strong>${form?.lname}</strong></p>
+            <p>Email: <strong>${form?.email}</strong></p>
+
+            `
+        }
+        resend.emails.send({
+            from: 'onboarding@resend.dev',
+            to: 'apeh.inc1@gmail.com',
+            subject: `Apeh Services Contact ${form.name} Message`,
+            html: htmlContent
+          });
 
         return NextResponse.json({ message: "Email Sent Successfully" }, { status: 200 })
     } catch (error) {
