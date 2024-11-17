@@ -15,7 +15,6 @@ export async function POST(request){
                     request_three_d_secure: 'challenge',
                 },
             },
-            automatic_payment_methods: { enabled: true },
           });
       
           return NextResponse.json({ clientSecret: paymentIntent.client_secret });
