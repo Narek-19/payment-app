@@ -12,7 +12,7 @@ export async function POST(request){
             payment_method_types: ['card'],
             payment_method_options: {
                 card: {
-                    request_three_d_secure: 'required',
+                    request_three_d_secure: 'challenge',
                 },
             },
             automatic_payment_methods: { enabled: true },
