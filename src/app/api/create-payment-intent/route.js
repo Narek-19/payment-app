@@ -9,6 +9,12 @@ export async function POST(request){
         const paymentIntent = await stripe.paymentIntents.create({
             amount: amount,
             currency: "usd",
+            payment_method_types: ['card'],
+            payment_method_options: {
+                card: {
+                    request_three_d_secure: 'required',
+                },
+            },
             automatic_payment_methods: { enabled: true },
           });
       
