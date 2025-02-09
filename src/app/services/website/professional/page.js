@@ -25,7 +25,7 @@ export default  function Page() {
         <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-4 mt-14">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Enterprise</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Professional</h1>
           <p className="text-xl text-gray-600">Fully customizable settings to match your brand's needs.</p>
         </div>
 

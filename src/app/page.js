@@ -21,6 +21,9 @@ import AnimationCard from "./components/AnimationCard/AnimationCard";
 import { ProposalContent } from "./components/ProposalContent/ProposalContent";
 import {ContactSection} from "./components/ContactSection/ContactSection";
 import { SuccessPayment } from './components/SuccessPayment';
+import { Faq } from '../../components/FAQ/Faq';
+import { Why } from '../../components/whyWork/Why';
+import { Cards } from '../../components/Cards/Cards';
 
 const stripePromise = loadStripe(
   process.env
@@ -141,8 +144,11 @@ export default function Home() {
           </ScrollAnimation>
         </div>
       </div>
-         
-      <div
+      <Cards/>
+         <Faq/>
+         <Why/>
+        
+      {/* <div
         className={styles.cardsPrice}>
         <div
           className={
@@ -610,7 +616,7 @@ export default function Home() {
             </div>
           </Card>
         </div>
-      </div>
+      </div> */}
       <div name="Contact"></div>
       <div className={styles.contactSection}>
             <ContactSection/>
