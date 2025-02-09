@@ -21,7 +21,7 @@ const [startCheckout,setStartCheckout] = useState(false);
 
     return (
       <>
-      <PaymentProcess setStartCheckout={setStartCheckout} price={1200} titlePlan="Basic" startCheckout={startCheckout}/>
+      <PaymentProcess setStartCheckout={setStartCheckout} price={1350} titlePlan="Basic" startCheckout={startCheckout}/>
 
         <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-4 mt-14">
       <div className="max-w-4xl mx-auto">
@@ -34,7 +34,7 @@ const [startCheckout,setStartCheckout] = useState(false);
           <div className="p-8">
             <div className="flex items-center justify-center">
               <div className="text-center">
-                <span className="text-5xl font-bold text-[#0e537e]">$1,200</span>
+                <span className="text-5xl font-bold text-[#0e537e]">$1,350</span>
                 <span className="text-xl text-gray-500">/creating</span>
               </div>
             </div>

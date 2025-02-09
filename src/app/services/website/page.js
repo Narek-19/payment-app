@@ -4,7 +4,7 @@ export default async function Page() {
     const plans = [
         {
           title: "Basic",
-          price: "1,200",
+          price: "1,350",
           description: "Perfect for individuals and small businesses.",
           features: ["Website Creating", "Support", "Basic Features"],
           link:'services/website/basic'
