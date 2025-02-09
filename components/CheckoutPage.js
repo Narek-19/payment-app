@@ -74,7 +74,7 @@ const CheckoutPage =({amount})=>{
 
 
         <button
-        className={styles.button}
+        className="w-full bg-[#0e537e] text-white py-4 px-8 rounded-xl text-lg font-semibold hover:bg-[#0c4568] transition-colors duration-300 transform hover:scale-[1.02] active:scale-[0.98] mt-2.5 cursor-pointer"
           disabled={!stripe || loading}>
           {!loading || !clientSecret || !stripe || !elements
             ? `Pay ${amount}$`

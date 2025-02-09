@@ -95,7 +95,7 @@ export default function Home() {
 
       </Modal>
       
-      <Navbar />
+ 
       {/* header  */}
       <div className={styles.layout}>
       <div

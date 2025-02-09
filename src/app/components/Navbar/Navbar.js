@@ -7,18 +7,26 @@ import Image from "next/image";
 import Logo from "../../../../public/15040.png";
 import MenuIcon from "../../../../public/menuIcon.png";
 import closeIcon from "../../../../public/close.png";
-import {
-  Link,
-  animateScroll as scroll,
-  scrollSpy,
-} from "react-scroll";
+import Link from 'next/link'
 import { PhoneNumber } from "../phoneNumber/PhoneNumber";
 
 const tabs = [
-  "Home",
-  "Service",
-  "About",
-  "Contact",
+  {
+    name:'Home',
+    route:''
+  },
+  {
+    name:'Service',
+    route:'services'
+  },
+  {
+    name:'About',
+    route:'about'
+  },
+  {
+    name:'Contact',
+    route:'contact'
+  }
 ];
 
 function useMinWidth(width) {
@@ -51,7 +59,7 @@ function useMinWidth(width) {
 
 const Navbar = () => {
   const [selected, setSelected] =
-    useState(tabs[0]);
+    useState(tabs[0].route);
   const [menuOpen, setMenuOpen] =
     useState(false);
 
@@ -108,21 +116,16 @@ const Navbar = () => {
                 styles.iconClose
               }></div>
             {tabs.map((tab) => (
-              <Link
-                to={tab}
-                spy={true}
-                smooth={true}
-                offset={50}
-                duration={500}>
+              <Link href ={`/${tab.route}`}>
                 <Chip
-                  text={tab}
+                  tab={tab}
                   selected={
-                    selected === tab
+                    selected === tab.route
                   }
                   setSelected={
                     setSelected
                   }
-                  key={tab}
+                  key={tab.route}
                 />
               </Link>
             ))}
@@ -153,20 +156,20 @@ const Navbar = () => {
             </div>
           </div>
           {tabs.map((tab) => (
-            <Link to={tab}>
+            <Link href ={`/${tab.route}`}>
               <div
                 onClick={() =>
                   setMenuOpen(false)
                 }>
                 <Chip
-                  text={tab}
+                  tab={tab}
                   selected={
-                    selected === tab
+                    selected === tab.route
                   }
                   setSelected={
                     setSelected
                   }
-                  key={tab}
+                  key={tab.route}
                 />
               </div>
             </Link>
@@ -186,13 +189,13 @@ const Navbar = () => {
 };
 
 const Chip = ({
-  text,
+  tab,
   selected,
   setSelected,
 }) => {
   return (
     <button
-      onClick={() => setSelected(text)}
+      onClick={() => setSelected(tab.route)}
       className={`${
         styles.defaultDesign
       } ${
@@ -201,7 +204,7 @@ const Chip = ({
           : styles.tabDesign
       }`}>
       <span className={styles.tabText}>
-        {text}
+        {tab.name}
       </span>
       {selected && (
         <motion.span
