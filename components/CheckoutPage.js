@@ -17,8 +17,10 @@ const CheckoutPage = ({ amount }) => {
   const stripe = useStripe();
   const elements = useElements();
 
-  const [isPaymentReady,setIsPaymentReady] = useState(false);
-  
+  const [
+    isPaymentReady,
+    setIsPaymentReady,
+  ] = useState(false);
 
   const [
     errorMessage,
@@ -32,16 +34,19 @@ const CheckoutPage = ({ amount }) => {
   const [loading, setLoading] =
     useState();
 
-    useEffect(()=>{
-        if(clientSecret !== undefined &&
-            stripe !== null){
-                setTimeout(() => {
-                    setIsPaymentReady(true)
-                }, 5000);
-        }
+  useEffect(() => {
+    if (
+      clientSecret !== undefined &&
+      stripe !== null
+    ) {
+      setTimeout(() => {
+        setIsPaymentReady(true);
+      }, 8000);
+    }
 
-        return ()=>setIsPaymentReady(false);
-    },[stripe,clientSecret])
+    return () =>
+      setIsPaymentReady(false);
+  }, [stripe, clientSecret]);
 
   useEffect(() => {
     fetch(
@@ -117,13 +122,17 @@ const CheckoutPage = ({ amount }) => {
         <PaymentElement />
       )}
 
-      {isPaymentReady && clientSecret !== undefined &&
-        stripe !== null &&
-        elements !== null && (
-          <button className="w-full bg-[#0e537e] text-white py-4 px-8 rounded-xl text-lg font-semibold hover:bg-[#0c4568] transition-colors duration-300 transform hover:scale-[1.02] active:scale-[0.98] mt-2.5 cursor-pointer">
-            Pay ${amount}
-          </button>
-        )}
+      {isPaymentReady ? (
+        <button className="w-full bg-[#0e537e] text-white py-4 px-8 rounded-xl text-lg font-semibold hover:bg-[#0c4568] transition-colors duration-300 transform hover:scale-[1.02] active:scale-[0.98] mt-2.5 cursor-pointer">
+          {isPaymentReady
+            ? `Pay ${amount}`
+            : "Processing..."}
+        </button>
+      ) : (
+        <div className="w-full bg-[#8a9aa3] text-white py-4 px-8 rounded-xl text-lg font-semibold mt-2.5">
+          Processing ... 
+        </div>
+      )}
     </form>
   );
 };
