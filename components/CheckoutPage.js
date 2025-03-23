@@ -17,6 +17,9 @@ const CheckoutPage = ({ amount }) => {
   const stripe = useStripe();
   const elements = useElements();
 
+  const [isPaymentReady,setIsPaymentReady] = useState(false);
+  
+
   const [
     errorMessage,
     setErrorMessage,
@@ -24,10 +27,21 @@ const CheckoutPage = ({ amount }) => {
   const [
     clientSecret,
     setClientSecret,
-  ] = useState();
-  
+  ] = useState(undefined);
+
   const [loading, setLoading] =
     useState();
+
+    useEffect(()=>{
+        if(clientSecret !== undefined &&
+            stripe !== null){
+                setTimeout(() => {
+                    setIsPaymentReady(true)
+                }, 5000);
+        }
+
+        return ()=>setIsPaymentReady(false);
+    },[stripe,clientSecret])
 
   useEffect(() => {
     fetch(
@@ -103,7 +117,7 @@ const CheckoutPage = ({ amount }) => {
         <PaymentElement />
       )}
 
-      {clientSecret !== undefined &&
+      {isPaymentReady && clientSecret !== undefined &&
         stripe !== null &&
         elements !== null && (
           <button className="w-full bg-[#0e537e] text-white py-4 px-8 rounded-xl text-lg font-semibold hover:bg-[#0c4568] transition-colors duration-300 transform hover:scale-[1.02] active:scale-[0.98] mt-2.5 cursor-pointer">
