@@ -81,7 +81,7 @@ export const Faq = () => {
   const faqs = [
     {
       question: "CAN'T I JUST MANAGE MY SOCIAL MEDIA ACCOUNTS ON MY OWN?",
-      answer: 'You might ask, "Why hire a social media agency when I have plenty of in-house resources?" The fact is that social media marketing often requires plenty of expertise and industry knowledge to succeed. At Ignite Visibility, our experts know what works and what doesn\'t and can tailor all services to your unique needs, helping you focus more on growing your business.'
+      answer: 'You might ask, "Why hire a social media agency when I have plenty of in-house resources?" The fact is that social media marketing often requires plenty of expertise and industry knowledge to succeed. Our experts know what works and what doesn\'t and can tailor all services to your unique needs, helping you focus more on growing your business.'
     },
     {
       question: "WHAT SHOULD I LOOK FOR BEFORE I HIRE A SOCIAL MEDIA COMPANY?",
@@ -160,9 +160,9 @@ export const Faq = () => {
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       {/* Why Work With Us Section */}
       <div className="max-w-7xl mx-auto mb-20">
-        <h2 className="text-4xl md:text-5xl font-bold text-teal-800 mb-12 text-center">
+        {/* <h2 className="text-4xl md:text-5xl font-bold text-teal-800 mb-12 text-center">
           WHY WORK WITH US?
-        </h2>
+        </h2> */}
         <div className="max-w-3xl mx-auto">
           {whyWorkWithUs.map((point, index) => (
             <WhyWorkWithUsPoint
