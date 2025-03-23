@@ -21,7 +21,7 @@ const [startCheckout,setStartCheckout] = useState(false);
 
     return (
       <>
-      <PaymentProcess setStartCheckout={setStartCheckout} price={1350} titlePlan="Basic" startCheckout={startCheckout}/>
+      {startCheckout && <PaymentProcess setStartCheckout={setStartCheckout} price={1} titlePlan="Basic" startCheckout={startCheckout}/>}
 
         <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-4 mt-14">
       <div className="max-w-4xl mx-auto">

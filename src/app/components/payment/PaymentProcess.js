@@ -39,7 +39,7 @@ export const PaymentProcess = (
       setTitle(title);
       setOpen(true);
     },
-    []
+    [setAmount, setTitle, setOpen]
   );
 
   useEffect(() => {
